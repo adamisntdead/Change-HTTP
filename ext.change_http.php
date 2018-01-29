@@ -62,6 +62,7 @@ class Change_http_ext
                 'hook' => 'template_post_parse',
                 'settings' => serialize($this->settings),
                 'version' => $this->version,
+                'priority' => 10,
                 'enabled' => 'y',
             ),
         ));
@@ -75,7 +76,7 @@ class Change_http_ext
      */
     public function template_post_parse($final, $is_partial, $site_id)
     {
-        return str_replace('http://', 'https://', $final);
+        return str_replace("http:", "https:", $final);
     }
 
     /**
